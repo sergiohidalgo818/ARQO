@@ -1,0 +1,14 @@
+Miguel Ibáñez Gonzalex y Sergio Hidalgo Gamborino
+
+Ejercicio 1) Se pide completar el microprocesador RISC V en su versión uniciclo. El diseño entregado como punto
+de partida, no soporta el set de instrucciones descripto (add, addi, and, andi, auipc, beq, bne, j, jal,
+li, lw, lui, sw, xor).
+
+El codigo presentado si que soporta las siguientes instrucciones add, addi, and, andi, auipc, beq, bne, j, jal,
+li, lw, lui, sw y xor. No obstante, al realizar la simulación de los ficheros "riscv_pruBasico.asm" y "programa_test.asm" con el microprocesador presentado, el primer fichero realiza correctamente las instrucciones, pero el segundo genera algunos errores en la AluControl debido a la falta de implementación de ciertas instrucciones (Foto 1, 2 y 3).
+
+Ejercicio 2) Se pide realizar un programa en ensamblador simple que sea capaz de probar las instrucciones que
+puedan haber quedado sin probar en el programa provisto como punto de partida. ¿cuales no se prueban
+en el programa de partida? 
+
+Las instrucciones que no se testean en el programa provisto como punto de partida "riscv_pruBasico.asm" (add, andi, j, jal, xor), se prueban en el "programa_test.asm". 
