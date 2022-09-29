@@ -1,3 +1,5 @@
+Sergio Hidalgo y Miguel Ibañez
+
 Ejercicio 1) Se pide completar el microprocesador RISC V en su versión uniciclo. El diseño entregado como punto
 de partida, no soporta el set de instrucciones descripto (add, addi, and, andi, auipc, beq, bne, j, jal,
 li, lw, lui, sw, xor).
