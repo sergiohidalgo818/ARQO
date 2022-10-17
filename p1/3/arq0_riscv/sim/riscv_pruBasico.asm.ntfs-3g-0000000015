@@ -1,0 +1,19 @@
+#-----------------------------------------------------
+# Prueba simple para testar la ruta de datos
+# G.Sutter jun 2022
+#
+
+.data
+buffer: .space 16
+num0:   .word  1
+num1:   .word  2
+num2:   .word  4
+num3:   .word  8
+num4:   .word 16
+num5:   .word 32
+mask1:  .word 0xFFFFFF00
+mask2:  .word 0x000000FF
+
+.text
+main:
+	lw a0, num2

@@ -1,87 +1,19 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /processorrv_tb/i_processor/Clk
-add wave -noupdate /processorrv_tb/i_processor/Reset
-add wave -noupdate /processorrv_tb/i_processor/IAddr
-add wave -noupdate /processorrv_tb/i_processor/IDataIn
-add wave -noupdate /processorrv_tb/i_processor/DAddr
-add wave -noupdate /processorrv_tb/i_processor/DRdEn
-add wave -noupdate /processorrv_tb/i_processor/DWrEn
-add wave -noupdate /processorrv_tb/i_processor/DDataOut
-add wave -noupdate /processorrv_tb/i_processor/DDataIn
-add wave -noupdate /processorrv_tb/i_processor/Alu_Op1
-add wave -noupdate /processorrv_tb/i_processor/Alu_Op2
-add wave -noupdate /processorrv_tb/i_processor/Alu_ZERO
-add wave -noupdate /processorrv_tb/i_processor/Alu_SIGN
-add wave -noupdate /processorrv_tb/i_processor/AluControl
-add wave -noupdate /processorrv_tb/i_processor/reg_RD_data
-add wave -noupdate /processorrv_tb/i_processor/branch_true
-add wave -noupdate /processorrv_tb/i_processor/PC_next
-add wave -noupdate /processorrv_tb/i_processor/PC_reg
-add wave -noupdate /processorrv_tb/i_processor/PC_plus4
-add wave -noupdate /processorrv_tb/i_processor/Instruction
-add wave -noupdate /processorrv_tb/i_processor/Inm_ext
-add wave -noupdate /processorrv_tb/i_processor/reg_RS
-add wave -noupdate /processorrv_tb/i_processor/reg_RT
-add wave -noupdate /processorrv_tb/i_processor/dataIn_Mem
-add wave -noupdate /processorrv_tb/i_processor/Addr_Branch
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_Jalr
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_Branch
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_MemWrite
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_MemRead
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_ALUSrc
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_RegWrite
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_ALUOP
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_PcLui
-add wave -noupdate /processorrv_tb/i_processor/Ctrl_ResSrc
-add wave -noupdate /processorrv_tb/i_processor/Addr_jalr
-add wave -noupdate /processorrv_tb/i_processor/Addr_Jump_dest
-add wave -noupdate /processorrv_tb/i_processor/desition_Jump
-add wave -noupdate /processorrv_tb/i_processor/Alu_Res
-add wave -noupdate /processorrv_tb/i_processor/Funct3
-add wave -noupdate /processorrv_tb/i_processor/Funct7
-add wave -noupdate /processorrv_tb/i_processor/RS1
-add wave -noupdate /processorrv_tb/i_processor/RS2
-add wave -noupdate /processorrv_tb/i_processor/RD
-add wave -noupdate /processorrv_tb/i_processor/OPCode_ID
-add wave -noupdate /processorrv_tb/i_processor/Instruction_ID
-add wave -noupdate /processorrv_tb/i_processor/PC_ID
-add wave -noupdate /processorrv_tb/i_processor/PC4_ID
-add wave -noupdate /processorrv_tb/i_processor/CtrlALUOP_EX
-add wave -noupdate /processorrv_tb/i_processor/CtrlALUsrc_EX
-add wave -noupdate /processorrv_tb/i_processor/CtrlPcLui_EX
-add wave -noupdate /processorrv_tb/i_processor/Funct3_EX
-add wave -noupdate /processorrv_tb/i_processor/Funct7_EX
-add wave -noupdate /processorrv_tb/i_processor/Inmm_EX
-add wave -noupdate /processorrv_tb/i_processor/PC_EX
-add wave -noupdate /processorrv_tb/i_processor/WB_EX
-add wave -noupdate /processorrv_tb/i_processor/M_EX
-add wave -noupdate /processorrv_tb/i_processor/PC_P4_ex
-add wave -noupdate /processorrv_tb/i_processor/RD_ex
-add wave -noupdate /processorrv_tb/i_processor/RT_EX
-add wave -noupdate /processorrv_tb/i_processor/RS_EX
-add wave -noupdate /processorrv_tb/i_processor/ALUSign_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/ALUZero_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/ALURes_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/MemRead_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/MemWrite_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/WB_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/CtrlJalr_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/CtrlBranch_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/Funct3_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/AddrJalr_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/AddrBranch_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/PC_P4_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/RD_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/RegRT_MEMORY
-add wave -noupdate /processorrv_tb/i_processor/ALURes_WB
-add wave -noupdate /processorrv_tb/i_processor/CtrlRegWrite_WB
-add wave -noupdate /processorrv_tb/i_processor/CtrlResSrc_WB
-add wave -noupdate /processorrv_tb/i_processor/DataIN_WB
-add wave -noupdate /processorrv_tb/i_processor/PC_P4_WB
-add wave -noupdate /processorrv_tb/i_processor/RD_WB
+add wave -noupdate /processorrv_tb/clk
+add wave -noupdate /processorrv_tb/reset
+add wave -noupdate /processorrv_tb/iAddr
+add wave -noupdate /processorrv_tb/iDataIn
+add wave -noupdate /processorrv_tb/dWrEn
+add wave -noupdate /processorrv_tb/dRdEn
+add wave -noupdate -divider {New Divider}
+add wave -noupdate /processorrv_tb/i_processor/RegsRISCV/regs
+add wave -noupdate -divider {PC values}
+add wave -noupdate -radix unsigned /processorrv_tb/i_processor/PC_reg
+add wave -noupdate -radix unsigned /processorrv_tb/i_processor/PC_next
+add wave -noupdate -radix unsigned /processorrv_tb/i_processor/PC_plus4
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1204168 ps} 0}
+WaveRestoreCursors {{Cursor 1} {112 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -97,4 +29,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1170500 ps} {1580500 ps}
+WaveRestoreZoom {0 ns} {410 ns}

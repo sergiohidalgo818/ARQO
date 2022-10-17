@@ -14,7 +14,7 @@ package RISCV_pack is
     -- Tipo para los codigos de operacion:
     subtype t_opCode is std_logic_vector (6 downto 0);
     -- Codigos de operacion para las diferentes instrucciones:
-    constant OP_RTYPE  : t_opCode := "0110011";
+    constant OP_RTYPE  : t_opCode := "0110011"; 
     constant OP_ITYPE  : t_opCode := "0010011"; -- I-Type Arithm
     constant OP_BRANCH : t_opCode := "1100011";
     constant OP_ST     : t_opCode := "0100011";
