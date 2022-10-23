@@ -168,6 +168,9 @@ architecture rtl of processorRV is
   signal DataIN_WB : std_logic_vector(31 downto 0);
   signal PC_P4_WB     : std_logic_vector(31 downto 0);
   signal RD_WB : std_logic_vector(4 downto 0);
+  -- Forwarding unit
+  signal forwardA : std_logic_vector(1 downto 0);
+  signal forwardB : std_logic_vector(1 downto 0);
 
   begin
 
@@ -362,8 +365,55 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     Funct7  => Funct7_EX,    -- Campo "funct7" de la instruccion
     -- Salida de control para la ALU:
     ALUControl => AluControl -- Define operacion a ejecutar por la ALU
+    );
+    
+    
+  Forwarding_unit_i: forwarding_unit
+  port map(
+    EX_MEMRegWrite => WB_MEMORY(0),
+    EX_MEMRegisterRd => RD_MEMORY,
+    ID_EXRegisterRs => RS_EX,
+    ID_EXRegisterRt => RT_EX,
+    MEM_WBRegWrite => CtrlRegWrite_WB,
+    MEM_WBRegisterRd => RD_WB,
+    A => forwardA,
+    B => forwardB
   );
 
+  MUX_A: process(all)
+  begin
+
+    if forwardA = "10" then
+
+      RD_MEMORY = ID/EX.Reg.Rs
+
+    end if;
+
+
+    if forwardA = "01" then
+
+      end if;
+  
+
+  
+  end process;
+
+  MUX_B: process(all)
+  begin
+
+
+    if forwardB = "10" then
+    
+    end if;
+
+
+    if forwardB = "01" then
+      
+    end if;
+
+  
+  end process;
+    
   Alu_RISCV : alu_RV
   port map (
     OpA      => Alu_Op1,
@@ -392,4 +442,5 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
       ALURes_WB; -- When 00
 
 
+      
 end architecture;
