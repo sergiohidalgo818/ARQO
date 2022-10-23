@@ -66,7 +66,7 @@ begin
           when "110" =>                   --ORI
                 AluControl <= ALU_OR;                       
           when others =>
-                AluControl <= ALU_NIM;                 
+                AluControl <= ALU_NIM;                        
           end case; -- case funct3 I_type
        when LDST_T =>         --I-type LOAD or STORE (opcode "0000011" or "0100011")
              AluControl <= ALU_ADD;               

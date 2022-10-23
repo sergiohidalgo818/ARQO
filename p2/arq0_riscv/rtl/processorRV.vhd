@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- Procesador RISC V uniciclo curso Arquitectura Ordenadores 2022
 -- Initial Release G.Sutter jun 2022
--- 
+-- Sergio Hidalgo y Miguel Ibañez
 --
 --------------------------------------------------------------------------------
 
@@ -346,8 +346,8 @@ end process;
   desition_Jump  <= CtrlJalr_MEMORY or (CtrlBranch_MEMORY and branch_true);
   branch_true    <= '1' when ( ((Funct3_MEMORY = BR_F3_BEQ) and (ALUZero_MEMORY = '1')) or
                                ((Funct3_MEMORY = BR_F3_BNE) and (ALUZero_MEMORY = '0')) or
-                               ((Funct3_MEMORY = BR_F3_BLT) and (ALUZero_MEMORY = '1')) or
-                               ((Funct3_MEMORY = BR_F3_BGT) and (ALUZero_MEMORY = '0')) ) else
+                               ((Funct3_MEMORY = BR_F3_BLT) and (ALUSign_MEMORY = '1')) or
+                               ((Funct3_MEMORY = BR_F3_BGT) and (ALUSign_MEMORY = '0')) ) else
                     '0';
  
 Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
@@ -390,5 +390,6 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
   reg_RD_data <= DataIN_WB when CtrlResSrc_WB = "01" else
     PC_P4_WB   when CtrlResSrc_WB = "10" else 
       ALURes_WB; -- When 00
+
 
 end architecture;
