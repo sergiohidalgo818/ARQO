@@ -1,0 +1,338 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/sergio/intelFPGA/20.1/modelsim_ase/bin
+Ealu_control
+Z0 w1664489832
+Z1 DPx4 work 10 riscv_pack 0 22 8LWXYEk<MQYOo1XNciLH52
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 9
+Z6 d/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl
+Z7 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_control.vhd
+Z8 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_control.vhd
+l0
+Z9 L13 1
+VfzCec>_81oBozIZ<Ti5QD2
+!s100 oLnYYd:T7PmnjGEN;VYD^2
+Z10 OV;C;2020.1;71
+33
+Z11 !s110 1666003430
+!i10b 1
+Z12 !s108 1666003430.000000
+Z13 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_control.vhd|
+Z14 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_control.vhd|
+!i113 1
+Z15 o-work work -2008 -explicit
+Z16 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+R4
+R5
+DEx4 work 11 alu_control 0 22 fzCec>_81oBozIZ<Ti5QD2
+!i122 9
+l27
+L24 57
+V^Oa6OCKN24Ao4Y3?>?AhW3
+!s100 l3_@klS`^@2H9NJFa[gEg2
+R10
+33
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Ealu_rv
+R0
+R1
+R2
+R3
+R4
+R5
+!i122 10
+R6
+Z17 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_RV.vhd
+Z18 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_RV.vhd
+l0
+Z19 L14 1
+V;PDRH>Vn:jICXC^HGR]hB1
+!s100 EfhfcnDS<T_Kfi:SHQMmL2
+R10
+33
+R11
+!i10b 1
+R12
+Z20 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_RV.vhd|
+Z21 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/alu_RV.vhd|
+!i113 1
+R15
+R16
+Artl
+R1
+R2
+R3
+R4
+R5
+DEx4 work 6 alu_rv 0 22 ;PDRH>Vn:jICXC^HGR]hB1
+!i122 10
+l33
+L26 32
+V2c169WR[XE5fmgC>:YAB<1
+!s100 G:H7W9Ba9;Ec=Q60P2Tbk0
+R10
+33
+R11
+!i10b 1
+R12
+R20
+R21
+!i113 1
+R15
+R16
+Econtrol_unit
+R0
+R1
+R2
+R3
+R4
+R5
+!i122 11
+R6
+Z22 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/control_unit.vhd
+Z23 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/control_unit.vhd
+l0
+R19
+VmG_hgkj<5;4`72aZVRMI@0
+!s100 U]KgeB@k:8DgUYQzk;[c30
+R10
+33
+R11
+!i10b 1
+R12
+Z24 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/control_unit.vhd|
+Z25 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/control_unit.vhd|
+!i113 1
+R15
+R16
+Artl
+R1
+R2
+R3
+R4
+R5
+DEx4 work 12 control_unit 0 22 mG_hgkj<5;4`72aZVRMI@0
+!i122 11
+l37
+L35 45
+VA9K6EzPP`hNgA8D7ANW@a1
+!s100 [gJL8]Yl?f_Dc9Bo7Lgc?3
+R10
+33
+R11
+!i10b 1
+R12
+R24
+R25
+!i113 1
+R15
+R16
+Eimm_gen
+R0
+R1
+R2
+R3
+Z26 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R4
+R5
+!i122 12
+R6
+Z27 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/Imm_Generator.vhd
+Z28 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/Imm_Generator.vhd
+l0
+Z29 L12 1
+VZUCzR^Y4WL<I9Ba2?;S>c1
+!s100 hWiQg_W<D0:aGfX?GcLRj1
+R10
+33
+R11
+!i10b 1
+R12
+Z30 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/Imm_Generator.vhd|
+Z31 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/Imm_Generator.vhd|
+!i113 1
+R15
+R16
+Artl
+R1
+R2
+R3
+R26
+R4
+R5
+DEx4 work 7 imm_gen 0 22 ZUCzR^Y4WL<I9Ba2?;S>c1
+!i122 12
+l26
+L19 37
+VF>Q0G=9cYYQflJlXa;L:20
+!s100 n>`PNJgid0fD3akS8QU4C0
+R10
+33
+R11
+!i10b 1
+R12
+R30
+R31
+!i113 1
+R15
+R16
+Eprocessorrv
+Z32 w1666003426
+R1
+R2
+R3
+R4
+R5
+!i122 13
+R6
+Z33 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/processorRV.vhd
+Z34 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/processorRV.vhd
+l0
+R9
+VC5EAFHD>i@b4R4Y@GF]dY3
+!s100 L2go:4eTCb_2;@`gRQEHZ2
+R10
+33
+R11
+!i10b 1
+R12
+Z35 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/processorRV.vhd|
+Z36 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/processorRV.vhd|
+!i113 1
+R15
+R16
+Artl
+R1
+R2
+R3
+R4
+R5
+DEx4 work 11 processorrv 0 22 C5EAFHD>i@b4R4Y@GF]dY3
+!i122 13
+l172
+L29 369
+VR:YUlX5<]YA5]YUYKWc532
+!s100 o^c3A[eET;Pd9BU;P6a0Q0
+R10
+33
+R11
+!i10b 1
+R12
+R35
+R36
+!i113 1
+R15
+R16
+Ereg_bank
+R0
+R2
+R3
+R4
+R5
+!i122 14
+R6
+Z37 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/reg_bank.vhd
+Z38 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/reg_bank.vhd
+l0
+R29
+V6HF85kQ:V5DJ7kM<m]7Z>0
+!s100 4BF[bl]Q>SCW97K@Bf]]@3
+R10
+33
+R11
+!i10b 1
+R12
+Z39 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/reg_bank.vhd|
+Z40 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/reg_bank.vhd|
+!i113 1
+R15
+R16
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 8 reg_bank 0 22 6HF85kQ:V5DJ7kM<m]7Z>0
+!i122 14
+l32
+L26 34
+Vf:i_R=;EV2>e4IKd9ND?82
+!s100 8=H9G2aa45zGIfP?i_OKM0
+R10
+33
+R11
+!i10b 1
+R12
+R39
+R40
+!i113 1
+R15
+R16
+Priscv_pack
+R2
+R3
+R4
+R5
+!i122 15
+R0
+R6
+Z41 8/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/RISCV_pack.vhd
+Z42 F/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/RISCV_pack.vhd
+l0
+R29
+V8LWXYEk<MQYOo1XNciLH52
+!s100 WQQ:0kS]l<4zNOI=k?cVS0
+R10
+33
+R11
+!i10b 1
+R12
+Z43 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/RISCV_pack.vhd|
+Z44 !s107 /home/sergio/Escritorio/uni/3o/1er_cuatri/ARQO/ARQO/p1/3/arq0_riscv/rtl/RISCV_pack.vhd|
+!i113 1
+R15
+R16
+Bbody
+R1
+R2
+R3
+R4
+R5
+!i122 15
+l0
+Z45 L57 1
+Z46 V?9VJ;DekSXmLPojS>]@?o1
+Z47 !s100 fJYkK2@g<>69n3<6T4eMh1
+R10
+33
+R11
+!i10b 1
+R12
+R43
+R44
+!i113 1
+R15
+R16
