@@ -408,33 +408,7 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     B => forwardB
   );
 
-  MUX_A: process(all)
-  begin
-
-    if forwardA = "10" then
-      RS_EX <= ALURes_MEMORY;
-    end if;
-
-    if forwardA = "01" then
-      RS_EX <= ALURes_WB;
-    end if;
   
-  end process;
-
-  MUX_B: process(all)
-  begin
-
-
-    if forwardB = "10" then
-      RT_EX <= ALURes_MEMORY;
-    end if;
-
-    if forwardB = "01" then
-      RT_EX <= ALURes_WB;
-    end if;
-
-  
-  end process;
     
   Alu_RISCV : alu_RV
   port map (
