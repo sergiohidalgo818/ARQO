@@ -93,6 +93,19 @@ architecture rtl of processorRV is
     );
   end component Imm_Gen;
 
+  component forwarding_unit is
+    port (
+      EX_MEMRegWrite : in std_logic;
+      ID_EXRegisterRs : in std_logic_vector(4 downto 0);
+      ID_EXRegisterRt : in std_logic_vector(4 downto 0);
+      EX_MEMRegisterRd : in std_logic_vector(4 downto 0);
+      MEM_WBRegisterRd : in std_logic_vector(4 downto 0);
+      MEM_WBRegWrite : in std_logic;
+      A : out std_logic_vector(1 downto 0);
+      B : out std_logic_vector(1 downto 0)
+    );
+  end component forwarding_unit;
+
   signal Alu_Op1      : std_logic_vector(31 downto 0);
   signal Alu_Op2      : std_logic_vector(31 downto 0);
   signal Alu_ZERO     : std_logic;
@@ -399,11 +412,8 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
   begin
 
     if forwardA = "10" then
-
       RS_EX <= ALURes_MEMORY;
-
     end if;
-
 
     if forwardA = "01" then
       RS_EX <= ALURes_WB;
