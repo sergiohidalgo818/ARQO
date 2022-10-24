@@ -171,7 +171,9 @@ architecture rtl of processorRV is
   -- Forwarding unit
   signal forwardA : std_logic_vector(1 downto 0);
   signal forwardB : std_logic_vector(1 downto 0);
-
+  signal muxA : std_logic_vector(31 downto 0);
+  signal muxB : std_logic_vector(31 downto 0);
+  
   begin
 
   PC_next <= Addr_Jump_dest when desition_Jump = '1' else PC_plus4;
@@ -407,27 +409,30 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
 
   MUX_A: process(all)
   begin
+  
+	if forwardA = "00" then
+		muxA <= RS_EX;
 
-    if forwardA = "10" then
-      RS_EX <= ALURes_MEMORY;
-    end if;
-
-    if forwardA = "01" then
-      RS_EX <= ALURes_WB;
+    elsif forwardA = "10" then
+		muxA <= ALURes_MEMORY;
+		
+    elsif forwardA = "01" then
+		muxA <= ALURes_WB;
     end if;
   
   end process;
 
   MUX_B: process(all)
   begin
+	
+	if forwardB = "00" then
+      muxB <= RT_EX;
+	
+    elsif forwardB = "10" then
+      muxB <= ALURes_MEMORY;
 
-
-    if forwardB = "10" then
-      RT_EX <= ALURes_MEMORY;
-    end if;
-
-    if forwardB = "01" then
-      RT_EX <= ALURes_WB;
+    elsif forwardB = "01" then
+      muxB <= ALURes_WB;
     end if;
 
   
@@ -446,8 +451,8 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
 
   Alu_Op1    <= PC_EX           when CtrlPcLui_EX = "00" else
                 (others => '0')  when CtrlPcLui_EX = "01" else
-                RS_EX; -- any other 
-  Alu_Op2    <= RT_EX when CtrlALUsrc_EX = '0' else Inmm_EX;
+                muxA; -- any other 
+  Alu_Op2    <= muxB when CtrlALUsrc_EX = '0' else Inmm_EX;
 
 
   DAddr      <= ALURes_MEMORY;
