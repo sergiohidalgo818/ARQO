@@ -268,7 +268,6 @@ EX_MEM_reg: process(clk,reset)
         CtrlJalr_MEMORY <= '0';
         CtrlBranch_MEMORY <= '0';
         PC_P4_MEMORY  <= x"00000000";
-        RD_MEMORY <= "00000";
         RegRT_MEMORY <= x"00000000";
         RD_MEMORY  <= "00000" ;
         RS1_MEMORY <= "00000" ;
@@ -384,51 +383,48 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     );
     
     
- -- Forwarding_unit_i: forwarding_unit
- -- port map(
-  --  EX_MEMRegWrite => WB_MEMORY(0),
-   -- EX_MEMRegisterRd => RD_MEMORY,
-   -- ID_EXRegisterRs => ,
-   -- ID_EXRegisterRt => ,
-   -- MEM_WBRegWrite => CtrlRegWrite_WB,
-  --  MEM_WBRegisterRd => RD_WB,
-   -- A => forwardA,
-   -- B => forwardB
-  --);
+  Forwarding_unit_i: forwarding_unit
+  port map(
+    EX_MEMRegWrite => WB_MEMORY(0),
+    ID_EXRegisterRs => RS2_EX,
+    ID_EXRegisterRt => RS1_EX,
+    EX_MEMRegisterRd => RD_MEMORY,
+    MEM_WBRegisterRd => RD_WB,
+    MEM_WBRegWrite => CtrlRegWrite_WB,
+    A => forwardA,
+    B => forwardB
+  );
 
- -- MUX_A: process(all)
-  --begin
+  MUX_A: process(all)
+  begin
 
-    --if forwardA = "10" then
+    if forwardA = "10" then
 
-      --RD_MEMORY = ID/EX.Reg.Rs
+      RS_EX <= ALURes_MEMORY;
 
-    --end if;
+    end if;
 
 
-    --if forwardA = "01" then
-      --MEM/WB.Reg.Rd = ID/EX.Reg.Rs
-    --end if;
+    if forwardA = "01" then
+      RS_EX <= ALURes_WB;
+    end if;
   
+  end process;
 
-  
-  --end process;
-
-  --MUX_B: process(all)
-  --begin
+  MUX_B: process(all)
+  begin
 
 
-    --if forwardB = "10" then
-      --EX/MEM.Reg.Rd = ID/EX.Reg.Rt
-   -- end if;
+    if forwardB = "10" then
+      RT_EX <= ALURes_MEMORY;
+    end if;
 
-
-    --if forwardB = "01" then
-    --  MEM/WB.Reg.Rd = ID/EX.Reg.Rt
-   -- end if;
+    if forwardB = "01" then
+      RT_EX <= ALURes_WB;
+    end if;
 
   
-  --end process;
+  end process;
     
   Alu_RISCV : alu_RV
   port map (

@@ -7,11 +7,11 @@ entity forwarding_unit is
 port(
     
     EX_MEMRegWrite : in std_logic;
-    EX_MEMRegisterRd : in std_logic_vector(4 downto 0);
     ID_EXRegisterRs : in std_logic_vector(4 downto 0);
     ID_EXRegisterRt : in std_logic_vector(4 downto 0);
-    MEM_WBRegWrite : in std_logic;
+    EX_MEMRegisterRd : in std_logic_vector(4 downto 0);
     MEM_WBRegisterRd : in std_logic_vector(4 downto 0);
+    MEM_WBRegWrite : in std_logic;
     A : out std_logic_vector(1 downto 0);
     B : out std_logic_vector(1 downto 0)
 );

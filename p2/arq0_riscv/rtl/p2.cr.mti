@@ -1,4 +1,48 @@
-C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/RISCV_pack.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/RISCV_pack.vhd
+C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/control_unit.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/control_unit.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package RISCV_pack
+-- Compiling entity control_unit
+-- Compiling architecture rtl of control_unit
+
+} {} {}} C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/reg_bank.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/reg_bank.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity reg_bank
+-- Compiling architecture rtl of reg_bank
+
+} {} {}} C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/Imm_Generator.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/Imm_Generator.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package RISCV_pack
+-- Compiling entity Imm_Gen
+-- Compiling architecture rtl of Imm_Gen
+
+} {} {}} C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/alu_RV.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/alu_RV.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package RISCV_pack
+-- Compiling entity alu_RV
+-- Compiling architecture rtl of alu_RV
+
+} {} {}} C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/RISCV_pack.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/RISCV_pack.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -8,5 +52,16 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling package RISCV_pack
 -- Compiling package body RISCV_pack
 -- Loading package RISCV_pack
+
+} {} {}} C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/alu_control.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sergi/Desktop/cositas/uni/3o/1er_cuatri/ARQO/ARQO/p2/arq0_riscv/rtl/alu_control.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package RISCV_pack
+-- Compiling entity alu_control
+-- Compiling architecture rtl of alu_control
 
 } {} {}}
