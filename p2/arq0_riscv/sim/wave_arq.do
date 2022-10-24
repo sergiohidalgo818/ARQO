@@ -12,8 +12,11 @@ add wave -noupdate -divider {PC values}
 add wave -noupdate -radix unsigned /processorrv_tb/i_processor/PC_reg
 add wave -noupdate -radix unsigned /processorrv_tb/i_processor/PC_next
 add wave -noupdate -radix unsigned /processorrv_tb/i_processor/PC_plus4
+add wave -noupdate /processorrv_tb/i_processor/Alu_Op2
+add wave -noupdate /processorrv_tb/i_processor/forwardA
+add wave -noupdate /processorrv_tb/i_processor/forwardB
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {112 ns} 0}
+WaveRestoreCursors {{Cursor 1} {160036 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -29,4 +32,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {410 ns}
+WaveRestoreZoom {0 ps} {858574 ps}

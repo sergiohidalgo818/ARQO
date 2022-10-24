@@ -93,19 +93,6 @@ architecture rtl of processorRV is
     );
   end component Imm_Gen;
 
-  component forwarding_unit is
-    port (
-      EX_MEMRegWrite : in std_logic;
-      ID_EXRegisterRs : in std_logic_vector(4 downto 0);
-      ID_EXRegisterRt : in std_logic_vector(4 downto 0);
-      EX_MEMRegisterRd : in std_logic_vector(4 downto 0);
-      MEM_WBRegisterRd : in std_logic_vector(4 downto 0);
-      MEM_WBRegWrite : in std_logic;
-      A : out std_logic_vector(1 downto 0);
-      B : out std_logic_vector(1 downto 0)
-    );
-  end component forwarding_unit;
-
   signal Alu_Op1      : std_logic_vector(31 downto 0);
   signal Alu_Op2      : std_logic_vector(31 downto 0);
   signal Alu_ZERO     : std_logic;
@@ -394,21 +381,57 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     -- Salida de control para la ALU:
     ALUControl => AluControl -- Define operacion a ejecutar por la ALU
     );
+
+
+  Forwarding_unit: process(all)
+  begin
     
-    
-  Forwarding_unit_i: forwarding_unit
-  port map(
-    EX_MEMRegWrite => WB_MEMORY(0),
-    ID_EXRegisterRs => RS2_EX,
-    ID_EXRegisterRt => RS1_EX,
-    EX_MEMRegisterRd => RD_MEMORY,
-    MEM_WBRegisterRd => RD_WB,
-    MEM_WBRegWrite => CtrlRegWrite_WB,
-    A => forwardA,
-    B => forwardB
-  );
+     if ((WB_MEMORY(0) = '1') and (RD_MEMORY /= "00000") and (RD_MEMORY = RS2_EX)) then
+      forwardA <= "10";
+    elsif ((CtrlRegWrite_WB = '1') and (RD_WB /= "00000") and (RD_MEMORY /=  RS2_EX) and (RD_WB = RS2_EX) ) then
+      forwardA <= "01";
+    else
+      forwardA <= "00";
+    end if;    
+
+    if ((WB_MEMORY(0) = '1') and(RD_MEMORY /= "00000") and (RD_MEMORY = RS1_EX)) then
+      forwardB <= "10";
+    elsif  ((CtrlRegWrite_WB = '1') and (RD_WB /= "00000") and (RD_MEMORY /= RS1_EX) and (RD_WB = RS1_EX)) then
+      forwardB <= "01";
+    else
+      forwardB <= "00";
+    end if;    
+
+
+  end process;
+
+  MUX_A: process(all)
+  begin
+
+    if forwardA = "10" then
+      RS_EX <= ALURes_MEMORY;
+    end if;
+
+    if forwardA = "01" then
+      RS_EX <= ALURes_WB;
+    end if;
+  
+  end process;
+
+  MUX_B: process(all)
+  begin
+
+
+    if forwardB = "10" then
+      RT_EX <= ALURes_MEMORY;
+    end if;
+
+    if forwardB = "01" then
+      RT_EX <= ALURes_WB;
+    end if;
 
   
+  end process;
     
   Alu_RISCV : alu_RV
   port map (
