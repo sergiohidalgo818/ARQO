@@ -143,9 +143,9 @@ architecture rtl of processorRV is
   signal WB_EX : std_logic_vector(2 downto 0);
   signal M_EX : std_logic_vector(3 downto 0);
   signal PC_P4_ex    : std_logic_vector(31 downto 0);
-  signal RD_ex : std_logic_vector(4 downto 0);
   signal RT_EX : std_logic_vector(31 downto 0);
   signal RS_EX : std_logic_vector(31 downto 0);
+  signal RS1_EX, RS2_EX, RD_EX   : std_logic_vector(4 downto 0);
   -- Signals EX_MEM
   signal ALUSign_MEMORY : std_logic;
   signal ALUZero_MEMORY : std_logic;
@@ -159,15 +159,15 @@ architecture rtl of processorRV is
   signal AddrJalr_MEMORY : std_logic_vector(31 downto 0);
   signal AddrBranch_MEMORY : std_logic_vector(31 downto 0);
   signal PC_P4_MEMORY     : std_logic_vector(31 downto 0);
-  signal RD_MEMORY : std_logic_vector(4 downto 0);
   signal RegRT_MEMORY : std_logic_vector(31 downto 0);
+  signal RS1_MEMORY, RS2_MEMORY, RD_MEMORY   : std_logic_vector(4 downto 0);
   -- Signals MEM_WB
   signal ALURes_WB : std_logic_vector(31 downto 0);
   signal CtrlRegWrite_WB : std_logic;
   signal CtrlResSrc_WB: std_logic_vector(1 downto 0);
   signal DataIN_WB : std_logic_vector(31 downto 0);
   signal PC_P4_WB     : std_logic_vector(31 downto 0);
-  signal RD_WB : std_logic_vector(4 downto 0);
+  signal RS1_WB, RS2_WB, RD_WB   : std_logic_vector(4 downto 0);
   -- Forwarding unit
   signal forwardA : std_logic_vector(1 downto 0);
   signal forwardB : std_logic_vector(1 downto 0);
@@ -232,6 +232,9 @@ architecture rtl of processorRV is
       Funct7_EX <= "0000000";
       RD_ex <= "00000";
       PC_P4_ex  <= x"00000000";
+      RD_EX <= "00000";
+      RS1_EX <= "00000";
+      RS2_EX <= "00000";
     elsif rising_edge(clk) then
       CtrlALUOP_EX <= Ctrl_aluOP;
       CtrlALUsrc_EX <= Ctrl_alusrc;
@@ -246,6 +249,9 @@ architecture rtl of processorRV is
       RD_ex <= rd;
       RT_EX <= reg_rt;
       RS_EX <= reg_rs;
+      RD_EX <= RD;
+      RS1_EX <= RS1;
+      RS2_EX <= RS2;
     end if;
 end process;  
 
@@ -264,6 +270,9 @@ EX_MEM_reg: process(clk,reset)
         PC_P4_MEMORY  <= x"00000000";
         RD_MEMORY <= "00000";
         RegRT_MEMORY <= x"00000000";
+        RD_MEMORY  <= "00000" ;
+        RS1_MEMORY <= "00000" ;
+        RS2_MEMORY <= "00000";
         elsif rising_edge(clk) then
         ALUSign_MEMORY <= alu_sign;
         ALUZero_MEMORY <= alu_zero;
@@ -279,6 +288,8 @@ EX_MEM_reg: process(clk,reset)
 	      PC_P4_MEMORY <= PC_P4_ex;
         RD_MEMORY <= RD_ex;
         RegRT_MEMORY <= RT_EX;
+        RS1_MEMORY<= RS1_EX ;
+        RS2_MEMORY <= RS2_EX;
       end if;
   end process;
 
@@ -292,6 +303,8 @@ EX_MEM_reg: process(clk,reset)
       DataIN_WB <= x"00000000";
       PC_P4_WB  <= x"00000000";
       RD_WB <= "00000";
+      RS1_WB <= "00000";
+      RS2_WB <= "00000";
     elsif rising_edge(clk) then
       CtrlResSrc_WB <= WB_MEMORY(2) & WB_MEMORY(1);
       CtrlRegWrite_WB <= WB_MEMORY(0);
@@ -299,6 +312,9 @@ EX_MEM_reg: process(clk,reset)
       DataIN_WB <= datain_mem;
       RD_WB <= RD_MEMORY;
       PC_P4_WB <= PC_P4_MEMORY;
+      RD_WB <= RD_MEMORY;
+      RS1_WB <= RS1_MEMORY;
+      RS2_WB <= RS2_MEMORY;
     end if;
 end process;
 
@@ -368,51 +384,51 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     );
     
     
-  Forwarding_unit_i: forwarding_unit
-  port map(
-    EX_MEMRegWrite => WB_MEMORY(0),
-    EX_MEMRegisterRd => RD_MEMORY,
-    ID_EXRegisterRs => RS_EX,
-    ID_EXRegisterRt => RT_EX,
-    MEM_WBRegWrite => CtrlRegWrite_WB,
-    MEM_WBRegisterRd => RD_WB,
-    A => forwardA,
-    B => forwardB
-  );
+ -- Forwarding_unit_i: forwarding_unit
+ -- port map(
+  --  EX_MEMRegWrite => WB_MEMORY(0),
+   -- EX_MEMRegisterRd => RD_MEMORY,
+   -- ID_EXRegisterRs => ,
+   -- ID_EXRegisterRt => ,
+   -- MEM_WBRegWrite => CtrlRegWrite_WB,
+  --  MEM_WBRegisterRd => RD_WB,
+   -- A => forwardA,
+   -- B => forwardB
+  --);
 
-  MUX_A: process(all)
-  begin
+ -- MUX_A: process(all)
+  --begin
 
-    if forwardA = "10" then
+    --if forwardA = "10" then
 
-      RD_MEMORY = ID/EX.Reg.Rs
+      --RD_MEMORY = ID/EX.Reg.Rs
 
-    end if;
+    --end if;
 
 
-    if forwardA = "01" then
-
-      end if;
+    --if forwardA = "01" then
+      --MEM/WB.Reg.Rd = ID/EX.Reg.Rs
+    --end if;
   
 
   
-  end process;
+  --end process;
 
-  MUX_B: process(all)
-  begin
-
-
-    if forwardB = "10" then
-    
-    end if;
+  --MUX_B: process(all)
+  --begin
 
 
-    if forwardB = "01" then
-      
-    end if;
+    --if forwardB = "10" then
+      --EX/MEM.Reg.Rd = ID/EX.Reg.Rt
+   -- end if;
+
+
+    --if forwardB = "01" then
+    --  MEM/WB.Reg.Rd = ID/EX.Reg.Rt
+   -- end if;
 
   
-  end process;
+  --end process;
     
   Alu_RISCV : alu_RV
   port map (
