@@ -407,6 +407,8 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
 
   end process;
 
+
+
   MUX_A: process(all)
   begin
   
@@ -415,9 +417,8 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
 
     elsif forwardA = "10" then
 		muxA <= ALURes_MEMORY;
-		
     elsif forwardA = "01" then
-		muxA <= ALURes_WB;
+		muxA <= reg_RD_data;
     end if;
   
   end process;
@@ -429,10 +430,11 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
       muxB <= RT_EX;
 	
     elsif forwardB = "10" then
+ 
       muxB <= ALURes_MEMORY;
 
     elsif forwardB = "01" then
-      muxB <= ALURes_WB;
+      muxB <= reg_RD_data;
     end if;
 
   
@@ -449,9 +451,9 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     Zflag    => Alu_ZERO
   );
 
-  Alu_Op1    <= PC_EX           when CtrlPcLui_EX = "00" else
+  Alu_Op1    <= muxA           when CtrlPcLui_EX = "00" else
                 (others => '0')  when CtrlPcLui_EX = "01" else
-                muxA; -- any other 
+                RS_EX; -- any other 
   Alu_Op2    <= muxB when CtrlALUsrc_EX = '0' else Inmm_EX;
 
 
