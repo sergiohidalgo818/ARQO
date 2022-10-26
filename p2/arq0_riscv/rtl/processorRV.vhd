@@ -173,6 +173,11 @@ architecture rtl of processorRV is
   signal forwardB : std_logic_vector(1 downto 0);
   signal muxA : std_logic_vector(31 downto 0);
   signal muxB : std_logic_vector(31 downto 0);
+  -- Hazard detection unit
+  signal Hazard : std_logic;
+  signal IDWrite : std_logic;
+  signal PCWrite : std_logic;
+
   
   begin
 
@@ -183,7 +188,7 @@ architecture rtl of processorRV is
   begin
     if Reset = '1' then
       PC_reg <= (22 => '1', others => '0'); -- 0040_0000
-    elsif rising_edge(Clk) then
+    elsif rising_edge(Clk) and PCWrite = '1' then
       PC_reg <= PC_next;
     end if;
   end process;
@@ -205,7 +210,7 @@ architecture rtl of processorRV is
 	      Instruction_ID <= x"00000000";
         PC_ID       <= x"00000000";
 	      PC4_ID  <= x"00000000";
-      elsif rising_edge(clk) then
+      elsif rising_edge(clk) and IDWrite = '1' then
         Funct3      <= Instruction(14 downto 12); -- Campo "funct3" de la instruccion
         Funct7      <= Instruction(31 downto 25); -- Campo "funct7" de la instruccion
         RD          <= Instruction(11 downto 7);
@@ -437,8 +442,22 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
       muxB <= reg_RD_data;
     end if;
 
-  
   end process;
+  
+  
+  HazardDetection_unit: process(all)
+  begin
+	if (M_EX(0) = '1' and ((RD_ex = RS1_EX) or (RD_ex = RS2_EX))) then 
+		Hazard <= '1';
+	else
+		Hazard <= '0';
+	end if;
+  end process;
+  
+
+  IDWrite <= not(Hazard);
+
+  PCWrite <= not(Hazard);
     
   Alu_RISCV : alu_RV
   port map (
