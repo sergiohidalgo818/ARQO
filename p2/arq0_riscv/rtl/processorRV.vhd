@@ -393,17 +393,17 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
   Forwarding_unit: process(all)
   begin
     
-     if ((WB_MEMORY(0) = '1') and (RD_MEMORY /= "00000") and (RD_MEMORY = RS2_EX)) then
+    if ((WB_MEMORY(0) = '1') and (RD_MEMORY /= "00000") and (RD_MEMORY = RS1_EX)) then
       forwardA <= "10";
-    elsif ((CtrlRegWrite_WB = '1') and (RD_WB /= "00000") and (RD_MEMORY /=  RS2_EX) and (RD_WB = RS2_EX) ) then
+    elsif ((CtrlRegWrite_WB = '1') and (RD_WB /= "00000") and (RD_MEMORY /=  RS1_EX) and (RD_WB = RS1_EX) ) then
       forwardA <= "01";
     else
       forwardA <= "00";
     end if;    
 
-    if ((WB_MEMORY(0) = '1') and(RD_MEMORY /= "00000") and (RD_MEMORY = RS1_EX)) then
+    if ((WB_MEMORY(0) = '1') and(RD_MEMORY /= "00000") and (RD_MEMORY = RS2_EX)) then
       forwardB <= "10";
-    elsif  ((CtrlRegWrite_WB = '1') and (RD_WB /= "00000") and (RD_MEMORY /= RS1_EX) and (RD_WB = RS1_EX)) then
+    elsif  ((CtrlRegWrite_WB = '1') and (RD_WB /= "00000") and (RD_MEMORY /= RS2_EX) and (RD_WB = RS2_EX)) then
       forwardB <= "01";
     else
       forwardB <= "00";
@@ -435,7 +435,6 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
       muxB <= RT_EX;
 	
     elsif forwardB = "10" then
- 
       muxB <= ALURes_MEMORY;
 
     elsif forwardB = "01" then
@@ -447,7 +446,7 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
   
   HazardDetection_unit: process(all)
   begin
-	if (M_EX(0) = '1' and ((RD_ex = RS1_EX) or (RD_ex = RS2_EX))) then 
+	if (M_EX(0) = '1' and ((RD_EX = RS1) or (RD_EX = RS2))) then 
 		Hazard <= '1';
 	else
 		Hazard <= '0';
@@ -470,9 +469,9 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
     Zflag    => Alu_ZERO
   );
 
-  Alu_Op1    <= muxA           when CtrlPcLui_EX = "00" else
+  Alu_Op1    <= PC_ex           when CtrlPcLui_EX = "00" else
                 (others => '0')  when CtrlPcLui_EX = "01" else
-                RS_EX; -- any other 
+                muxA; -- any other 
   Alu_Op2    <= muxB when CtrlALUsrc_EX = '0' else Inmm_EX;
 
 

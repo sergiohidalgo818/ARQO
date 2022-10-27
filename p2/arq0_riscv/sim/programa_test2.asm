@@ -24,6 +24,7 @@ buffer: .space 4
 .text 
 main: #Pruebas Load Store y Lui
       lui  t0, %hi(num0)  # Carga la parte alta de la dir num0
+
       lw   t1, 0(t0)      # En x6 un 1
       lw   t2, 4(t0)      # En x7 un 2
       lw   t3, 8(t0)      # En x28 un 4 
@@ -66,11 +67,15 @@ Pru_and:
 
       and  a4, a3, t3    # En x14 0x80
       andi a5, a3, 0xF0  # En x15 0x80
-  
-      beq  a4, a5, OK_AND
 
+      beq  a4, a5, OK_AND
+      nop
+      nop
+      nop
       j    error_AND
- 
+      nop
+      nop
+      nop
 OK_AND: 
 Pru_xor: 
       addi t4, zero, -1  # cargar x29 con FFF..FFF           
@@ -79,12 +84,9 @@ Pru_xor:
       xor  t6, t5, t3    # debe dar -1. t6 = t3 xor not(x3)
       # Este grupo de instrucciones puede fallar por riesgos de datos.
       # lo siguiente repite calculo dejando "burbujas" entre instrucciones
-      nop
-      nop
+
       xor  t5, t3, t4    # t5 = not (t3), es decir 5555AAAA
-      nop
-      nop
-      nop
+
       xor  t6, t5, t3    # debe dar -1. t6 = t3 xor not(x3)   
 
  
@@ -94,33 +96,47 @@ Pru_AUIPC:
 
       addi t1, t1, %lo(buffer) # Carga la parte baja de la dir buffer
 
-      # bne t0, t1, error_AUI    # X5 y X6 deben ser iguales. Descomentar con control de riesgos.
-                 
+      bne t0, t1, error_AUI    # X5 y X6 deben ser iguales. Descomentar con control de riesgos.
+
 Pru_jal:  
       jal ra, salto_y_regreso           
-      
+      nop
+      nop
+      nop
       addi t1, zero, -15
-       
+      nop
+      nop
+      nop
       bne t0, t1, error_JAL
       j OK_prog
            
 salto_y_regreso: # en ra(x1) tiene que estar la dir de retorno
       addi t0, zero -15  # guardo en x5 valor FFFF_FFF1. Como marca
- 
+      nop
+      nop
+      nop
       jalr zero, 0(ra)   # retorno al llamado
-     
+      nop
+      nop
+      nop
       addi t0, zero, 0xDD #nunca debe ejecutarse
 
 #--- Buclwa errores y final de prog 
 error_LW:  addi t1, t1, -1      # decrementa infinitamente t0
            beq  x0, x0, error_LW
-          
+           nop
+           nop
+           nop
 error_AND: addi t2, t2, -1      # decrementa infinitamente t0
            beq  x0, x0, error_AND
-          
+           nop
+           nop
+           nop
 error_AUI: addi t3, t3, -1      # decrementa infinitamente t0
            beq  x0, x0, error_AUI
-        
+           nop
+           nop
+           nop    
 error_JAL: addi t4, t4, -1      # decrementa infinitamente t4
            beq  x0, x0, error_JAL
            nop
@@ -128,4 +144,6 @@ error_JAL: addi t4, t4, -1      # decrementa infinitamente t4
            nop       
 OK_prog:   addi t6, t6, 1      # incrementa infinitamente t6 (x31)
            beq  x0, x0, OK_prog
-           
+           nop
+           nop
+           nop
