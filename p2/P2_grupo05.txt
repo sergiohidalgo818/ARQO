@@ -1,3 +1,6 @@
 Sergio Hidalgo y Miguel Ibañez
 
-
+	En el ejercicio 1.2 se establece la escritura en flanco de bajada dentro del fichero reg_bank.vhd, para así
+permitir lectura y escritura dentro de un mismo flanco.
+	
+	Se presentan 2 programas, "Programa_test P2 ej 1.asm", que es una modificación del programa entregado en el que se eliminan las operaciones no funcionales (NOP) del mismo para comprobar si funcionan los adelantamientos. Y el P2 ej 2.asm pedido para comprobar el ejercicio 2.

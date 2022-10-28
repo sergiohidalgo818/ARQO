@@ -453,10 +453,11 @@ Addr_Jump_dest <= AddrJalr_MEMORY   when CtrlJalr_MEMORY = '1' else
 	end if;
   end process;
   
-
-  IDWrite <= not(Hazard);
-
+  
   PCWrite <= not(Hazard);
+  
+  IDWrite <= ((not(Hazard)));
+
     
   Alu_RISCV : alu_RV
   port map (

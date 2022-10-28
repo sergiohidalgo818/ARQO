@@ -24,9 +24,9 @@ VVMP8g[fNVCG<AVZDYO]F80
 !s100 oLnYYd:T7PmnjGEN;VYD^2
 Z9 OV;C;10.5b;63
 33
-Z10 !s110 1666909582
+Z10 !s110 1666914061
 !i10b 1
-Z11 !s108 1666909582.000000
+Z11 !s108 1666914061.000000
 Z12 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|../rtl/alu_control.vhd|
 Z13 !s107 ../rtl/alu_control.vhd|
 !i113 1
@@ -207,13 +207,13 @@ Vo<b]_>FignSk=aKb<53Kc2
 !s100 2gz[T:60A1__ci[I=PYO@1
 R9
 33
-R10
+Z32 !s110 1666914062
 !i10b 1
-R11
-Z32 !s90 -reportprogress|300|-work|work|-2008|-explicit|memory_data.vhd|
-Z33 !s107 memory_data.vhd|
+Z33 !s108 1666914062.000000
+Z34 !s90 -reportprogress|300|-work|work|-2008|-explicit|memory_data.vhd|
+Z35 !s107 memory_data.vhd|
 !i113 1
-Z34 o-work work -2008 -explicit
+Z36 o-work work -2008 -explicit
 R15
 Abehavioral
 R29
@@ -229,13 +229,13 @@ VjM1fQL;:9aWX[3LNHSR[<1
 !s100 NDh?F8Fgm;g`<A]3j5n;g3
 R9
 33
-R10
-!i10b 1
-R11
 R32
+!i10b 1
 R33
-!i113 1
 R34
+R35
+!i113 1
+R36
 R15
 Ememory_instr
 R1
@@ -246,21 +246,21 @@ R24
 R6
 R5
 R0
-Z35 8memory_instr.vhd
-Z36 Fmemory_instr.vhd
+Z37 8memory_instr.vhd
+Z38 Fmemory_instr.vhd
 l0
 L18
 V:8CUJcdz8UJ0XzMolUY171
 !s100 _9GGl23;M19]_TVETbEdd1
 R9
 33
-Z37 !s110 1666909583
+R32
 !i10b 1
-R11
-Z38 !s90 -reportprogress|300|-work|work|-2008|-explicit|memory_instr.vhd|
-Z39 !s107 memory_instr.vhd|
+R33
+Z39 !s90 -reportprogress|300|-work|work|-2008|-explicit|memory_instr.vhd|
+Z40 !s107 memory_instr.vhd|
 !i113 1
-R34
+R36
 R15
 Abehavioral
 R29
@@ -276,24 +276,24 @@ V=2QEezRc9^:QX9obLTn^e1
 !s100 g`?aT1]ZQV;R7Z:ema0jD3
 R9
 33
-R37
+R32
 !i10b 1
-R11
-R38
+R33
 R39
+R40
 !i113 1
-R34
+R36
 R15
 Eprocessorrv
-Z40 w1666908372
+Z41 w1666914056
 R2
 R3
 R4
 R5
 R6
 R0
-Z41 8../rtl/processorRV.vhd
-Z42 F../rtl/processorRV.vhd
+Z42 8../rtl/processorRV.vhd
+Z43 F../rtl/processorRV.vhd
 l0
 L13
 V`9>?LToDWS2^zOhAc4NLh2
@@ -303,8 +303,8 @@ R9
 R10
 !i10b 1
 R11
-Z43 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|../rtl/processorRV.vhd|
-Z44 !s107 ../rtl/processorRV.vhd|
+Z44 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|../rtl/processorRV.vhd|
+Z45 !s107 ../rtl/processorRV.vhd|
 !i113 1
 R14
 R15
@@ -317,15 +317,15 @@ R6
 DEx4 work 11 processorrv 0 22 `9>?LToDWS2^zOhAc4NLh2
 l182
 L29
-V3>W6Diz6YO>[nO4L<CeBg2
-!s100 2>YUacB3C[ChJZieQDLKI2
+VFCAUJ53MPmK98:hS5T35X0
+!s100 EN8Mzm9gnbZnXfW?XEH9f2
 R9
 33
 R10
 !i10b 1
 R11
-R43
 R44
+R45
 !i113 1
 R14
 R15
@@ -336,21 +336,21 @@ R3
 R5
 R6
 R0
-Z45 8processorR5_tb.vhd
-Z46 FprocessorR5_tb.vhd
+Z46 8processorR5_tb.vhd
+Z47 FprocessorR5_tb.vhd
 l0
 L13
 VOGoGL]f9OA>G<_RC_bkTF1
 !s100 S5faK9b[kahQ6PW4Q@FJD1
 R9
 33
-R37
+R32
 !i10b 1
-Z47 !s108 1666909583.000000
+R33
 Z48 !s90 -reportprogress|300|-work|work|-2008|-explicit|processorR5_tb.vhd|
 Z49 !s107 processorR5_tb.vhd|
 !i113 1
-R34
+R36
 R15
 Atb
 R4
@@ -364,13 +364,13 @@ V3C;5]gh3`KImPRKOoVFgE1
 !s100 Qn`ZW0CNM9BBfdKn5I=7@2
 R9
 33
-R37
+R32
 !i10b 1
-R47
+R33
 R48
 R49
 !i113 1
-R34
+R36
 R15
 Ereg_bank
 R1
