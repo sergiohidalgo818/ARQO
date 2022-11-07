@@ -1,19 +1,18 @@
 #!/user/bin/bash
 
-for ((j=1, j<=10, j++)); do
+for (( i=1; i<=10; i++ ))
+do
 
-N1 = 1024
+let N1=1024
 
-for ((i=1, i<=10, i++)); do
-	./slow N1
-	N1 = $((1024 + N1))
+for (( j=1; j<=10; j++ ))
+do
+	
+	(echo N$j.$i $N1 slow && ../material_P3/./slow $N1 | grep time && echo fast && ../material_P3/./fast $N1 | grep time) | echo $(cat $1) >> Ejercicio1-1.txt
+	N1=$((1024 + N1))
 done
 
-N1 = 1024
-
-for ((i=1, i<=10, i++)); do
-	./fast N1
-	N1 = $((1024 + N1))
-done
 
 done
+
+
