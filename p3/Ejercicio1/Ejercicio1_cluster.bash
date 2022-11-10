@@ -1,4 +1,14 @@
-#!/user/bin/bash
+#!/bin/bash
+#
+#$ -S /bin/bash
+#$ -cwd
+#$ -o salida.out
+#$ -j y
+# Anadir valgrind y gnuplot al path
+export PATH=$PATH:/share/apps/tools/valgrind/bin:/share/apps/tools/gnuplot/bin
+
+export GDFONTPATH=/usr/share/fonts/liberation
+export GNUPLOT_DEFAULT_GDFONT=LiberationSans-Regular
 
 #1 & 3
 for (( i=1; i<=10; i++ ))
