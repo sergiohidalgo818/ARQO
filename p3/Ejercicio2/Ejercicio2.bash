@@ -21,7 +21,7 @@ N1=$((1024 + 1024*i))
 
 valgrind --tool=cachegrind --LL=8388608,1,64 --I1=$cache_tam,1,64 --D1=$cache_tam,1,64 --cachegrind-out-file=cachegrind.out.%p ../material_P3/./slow $N1
 slow=$(ls -Art | tail -n 1)
-(cg_annotate $slow | head -n 30) > slow.da
+(cg_annotate $slow | head -n 30) > slow.dat
 
 valgrind --tool=cachegrind --LL=8388608,1,64 --I1=$cache_tam,1,64 --D1=$cache_tam,1,64 --cachegrind-out-file=cachegrind.out.%p ../material_P3/./fast $N1 
 fast=$(ls -Art | tail -n 1)
@@ -30,7 +30,7 @@ fast=$(ls -Art | tail -n 1)
 
 
 
-(echo $N1 && (sed '18q;d' slow.dat | awk '{print $9}') && (sed '18q;d' slow.dat | awk '{print $15}') && (sed '18q;d' fast.dat | awk '{print $9}') && (sed '18q;d' fast.dat | awk '{print $15}')) | echo $(cat $1) >> cache_$cache_tam.dat
+((echo $N1) && (sed '18q;d' slow.dat | awk '{print $9}') && (sed '18q;d' slow.dat | awk '{print $15}') && (sed '18q;d' fast.dat | awk '{print $9}') && (sed '18q;d' fast.dat | awk '{print $15}')) | echo $(cat $1) >> cache_$cache_tam.dat
 
 
 done

@@ -12,6 +12,8 @@ gnuplot << EOF
         'cache_4096.dat' using 1:4 title 'fast_4096' with lines, \
         'cache_8192.dat' using 1:2 title 'slow_8192' with lines, \
         'cache_8192.dat' using 1:4 title 'fast_8192' with lines
+    replot
+    quit
 EOF
 
 gnuplot << EOF
@@ -28,5 +30,7 @@ gnuplot << EOF
         'cache_4096.dat' using 1:5 title 'fast_4096' with lines, \
         'cache_8192.dat' using 1:3 title 'slow_8192' with lines, \
         'cache_8192.dat' using 1:5 title 'fast_8192' with lines
+    replot
+    quit
 EOF
 
