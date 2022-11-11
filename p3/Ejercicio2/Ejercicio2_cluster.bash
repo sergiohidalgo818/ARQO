@@ -14,12 +14,15 @@ export VALGRIND_LIB=/share/apps/tools/valgrind/lib/valgrind
 export GDFONTPATH=/usr/share/fonts/liberation
 export GNUPLOT_DEFAULT_GDFONT=LiberationSans-Regular
 
-
-let N1=1024
+let N1
 let cache_tam
 let slow
 let fast
 let file=2
+let p=5
+let execs
+
+execs=$((1024 + 1024 *(p+1)))
 
 > slow.dat
 > fast.dat
@@ -27,11 +30,12 @@ let file=2
 cache_tam=$((512))
 for (( j=1; j<=4; j++ ))
 do
+N1=$((1024))
+N1=$((N1 + 1024*$p))
 cache_tam=$((cache_tam*2))  
 > cache_$cache_tam.dat
-for (( i=0; i<12; i++ ))
+while (($N1 <= $execs))
 do
-N1=$((1024 + 1024*i))
 
 
 valgrind --tool=cachegrind --LL=8388608,1,64 --I1=$cache_tam,1,64 --D1=$cache_tam,1,64 --cachegrind-out-file=cachegrind.out.%p ../material_P3/./slow $N1
@@ -45,8 +49,9 @@ fast=$(ls -Art | tail -n 1)
 
 
 
-(((echo $N1) && (sed '18q;d' slow.dat | awk '{print $5}') && (sed '18q;d' slow.dat | awk '{print $8}') && (sed '18q;d' fast.dat | awk '{print $5}') && (sed '18q;d' fast.dat | awk '{print $8}')) | echo $(cat $1)) |  | sed 's/,//g' >> cache_$cache_tam.dat
+(((echo $N1) && (sed '18q;d' slow.dat | awk '{print $9}') && (sed '18q;d' slow.dat | awk '{print $15}') && (sed '18q;d' fast.dat | awk '{print $9}') && (sed '18q;d' fast.dat | awk '{print $15}')) | echo $(cat $1)) | sed 's/,//g' >> cache_$cache_tam.dat
 
+N1=$((N1 + 256))
 
 done
 done
@@ -86,4 +91,5 @@ gnuplot << EOF
     replot
     quit
 EOF
+
 

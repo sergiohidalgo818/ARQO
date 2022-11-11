@@ -1,3 +1,4 @@
+
 gnuplot << EOF
     set xlabel "Tamaño matriz"
     set ylabel "Fallos"

@@ -46,15 +46,14 @@ int main( int argc, char *argv[])
 	return 0;
 }
 
-
-tipo compute(tipo **matrix,int n)
+tipo compute(tipo **matrix, int n)
 {
-	tipo sum=0;
-	int i,j;
-	
-	for(i=0;i<n;i++)
+	tipo sum = 0;
+	int i, j;
+
+	for (i = 0; i < n; i++)
 	{
-		for(j=0;j<n;j++)
+		for (j = 0; j < n; j++)
 		{
 			sum += matrix[i][j];
 		}
