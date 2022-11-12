@@ -1,0 +1,29 @@
+--------------------------------------------------------------------------------
+I1 cache:         8192 B, 64 B, direct-mapped
+D1 cache:         8192 B, 64 B, direct-mapped
+LL cache:         8388608 B, 64 B, direct-mapped
+Command:          ../material_P3/./fast 7168
+Data file:        cachegrind.out.3037
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  off
+
+--------------------------------------------------------------------------------
+Ir            I1mr        ILmr  Dr            D1mr       DLmr      Dw          D1mw       DLmw      
+--------------------------------------------------------------------------------
+3,184,201,788 102,762,608 1,276 1,027,684,997 15,660,190 6,428,613 411,063,255 10,865,909 6,427,292  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir            I1mr       ILmr Dr          D1mr      DLmr      Dw          D1mw       DLmw       file:function
+--------------------------------------------------------------------------------
+1,334,236,448          2    2 411,044,272 1,916,592       900 205,522,136          0         0  ???:random_r
+  873,463,808 51,380,226   52 308,281,344 1,599,361       784  51,380,224    799,680       392  ???:random
+  513,866,791          8    5 154,169,351 4,910,968     1,228 102,767,628 10,065,584 6,426,579  /home/arqo53/p3/material_P3/arqo3.c:generateMatrix
+  205,563,962          9    5  51,387,402 6,429,755 6,423,472          11          2         1  /home/arqo53/p3/material_P3/fast.c:main
+  205,520,896          1    1  51,380,224         0         0  51,380,224          0         0  ???:rand
+   51,380,471 51,380,268  126  51,380,354   799,701       401          46          2         2  ???:???
+

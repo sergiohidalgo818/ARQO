@@ -1,0 +1,27 @@
+--------------------------------------------------------------------------------
+I1 cache:         1024 B, 64 B, direct-mapped
+D1 cache:         1024 B, 64 B, direct-mapped
+LL cache:         8388608 B, 64 B, direct-mapped
+Command:          ./mul 1792
+Data file:        cachegrind.out.32241
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  off
+
+--------------------------------------------------------------------------------
+Ir             I1mr       ILmr  Dr             D1mr           DLmr       Dw         D1mw      DLmw      
+--------------------------------------------------------------------------------
+40,673,918,046 44,963,444 1,542 17,385,849,527 17,282,580,535 35,985,450 54,613,273 9,712,542 1,248,998  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir             I1mr       ILmr Dr             D1mr           DLmr       Dw         D1mw      DLmw     file:function
+--------------------------------------------------------------------------------
+40,301,379,395         17    9 17,263,760,651 17,260,547,583 35,983,191  3,213,071 3,213,057 444,502  /home/arqo53/p3/Ejercicio3/mul.c:main
+   166,794,650 12,845,060   98     51,385,184      3,834,562        111 25,692,592 2,279,178       0  ???:random_r
+   109,182,976 12,845,060  100     38,535,168      7,200,256         96  6,422,528         0       0  ???:random
+    64,257,620  6,422,541   31     19,281,934     10,209,859        148 12,848,666 4,217,505 803,944  /home/arqo53/p3/Ejercicio3/arqo3.c:generateMatrix
+

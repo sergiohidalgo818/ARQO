@@ -35,7 +35,7 @@ fast=$(ls -Art | tail -n 1)
 
 
 
-(((echo $N1) && (sed '18q;d' slow.dat | awk '{print $5}') && (sed '18q;d' slow.dat | awk '{print $8}') && (sed '18q;d' fast.dat | awk '{print $5}') && (sed '18q;d' fast.dat | awk '{print $8}')) | echo $(cat $1)) | sed 's/,//g' >> cache_$cache_tam.dat
+(((echo $N1) && (sed '18q;d' slow.dat | awk '{print $9}') && (sed '18q;d' slow.dat | awk '{print $15}') && (sed '18q;d' fast.dat | awk '{print $9}') && (sed '18q;d' fast.dat | awk '{print $15}')) | echo $(cat $1)) | sed 's/,//g' >> cache_$cache_tam.dat
 
 N1=$((N1 + 256))
 
