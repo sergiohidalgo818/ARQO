@@ -1,0 +1,7 @@
+User: arqo53
+Pass: wlqnYai
+
+cluster: ssh -oHostKeyAlgorithms=+ssh-dss -X -l arqo53 150.244.56.153
+transfer: sftp -oHostKeyAlgorithms=+ssh-dss arqo53@150.244.56.153
+
+command: put <fliename>
